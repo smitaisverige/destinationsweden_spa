@@ -4,4 +4,16 @@
 
 body{
   background-color: rgb(181, 231, 241, 0.8);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/*@media (max-width: 768px) {
+
+  body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh; 
+  margin: 0;
+}
+
+}*/
