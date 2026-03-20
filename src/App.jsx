@@ -6,18 +6,21 @@ import Footer from "./components/Footer";
 import sweden from "./data/sweden";
 
 function App() {
-  const [page, setPage] = useState(null);
+  const [page, setPage] = useState(null); // null = Home, or city name
 
-  const selectedCity = sweden.cities.find( (city) => city.name === page );
-
+  const goBack = () => setPage(null);
+{/* trying map function */}
   return (
     <>
       <Header updateFunction={setPage} />
-      
-      {!page && (<Country country={sweden} selectCity={setPage} /> )}
-      
-      {selectedCity && (<City  city={selectedCity} goBack={() => setPage(null)}  /> )}
-      
+
+      {!page && <Country country={sweden} selectCity={setPage} />}
+
+      {sweden.cities.map((city) => (
+        page === city.name && <City key={city.name} city={city} goBack={goBack} />
+      ))}
+{/*{selectedCity && (<City  city={selectedCity} goBack={() => setPage(null)}  /> )}
+ */}
       <Footer />
     </>
   );
